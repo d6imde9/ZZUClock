@@ -9,8 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout codes' 
+      - name: Check
       - uses: actions/checkout@v2
         
-      - name: Run a one-line script
-        run: bash./clock.sh
+      - name: Set
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+          
+      - name: Run
+        run: bash./clock.py
