@@ -1,8 +1,8 @@
 name: Github Actions Clock Bot
 
 on:
-#  schedule:
-#   - cron: '0 20 * * *'
+    schedule:
+    - cron: '0 20 * * *'
 
 jobs:
   build:
