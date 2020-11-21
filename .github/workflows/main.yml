@@ -1,9 +1,8 @@
 name: Github Actions Clock Bot
 
 on:
-  push:
-  schedule:
-    - cron: '0 20 * * *'
+#  schedule:
+#   - cron: '0 20 * * *'
 
 jobs:
   build:
@@ -11,11 +10,6 @@ jobs:
     steps:
       - name: Check
       - uses: actions/checkout@v2
-        
-      - name: Set
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
           
       - name: Run
-        run: bash./clock.py
+        run: bash./clock.sh
