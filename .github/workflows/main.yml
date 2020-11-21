@@ -13,4 +13,5 @@ jobs:
       - uses: actions/checkout@v2
           
       - name: Run
-        run: bash./clock.sh
+        run: chmod +x ./clock.sh
+            ./clock.sh
