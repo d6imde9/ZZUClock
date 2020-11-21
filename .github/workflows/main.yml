@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
     
       - name: Run
-      - run: chmod +x ./clock.sh
+        run: chmod +x ./clock.sh
             ./clock.sh
