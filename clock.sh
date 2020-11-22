@@ -2,7 +2,7 @@
 uid=201884160115
 upw=09292517
 #使用学号和密码获取ptopid和sid
-curl -d "uid=$uid&upw=$upw&smbtn=健康状况上报平台&hh28=722" "https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login" -o "udata.txt"
+curl -d "uid=$uid&upw=$upw&smbtn=健康状况上报平台&hh28=722" "https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0" -o "udata.txt"
 udata='cat udata.txt'
 udata=${udata#*ptopid=}
 udata=${udata%\"*}
