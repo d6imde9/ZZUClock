@@ -9,6 +9,8 @@ udata=${udata#*ptopid=}
 udata=${udata%\"\}\}*}
 ptopid="${udata%&*}" 
 sid="${udata#*&}"
+echo ${ptopid}
+echo ${sid}
 url="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
 
 #进入身份确认界面
