@@ -1,7 +1,7 @@
 name: Github Actions Clock Bot
 
 on:
-    push:
+    workflow_dispatch:
     schedule:
     - cron: '0 20 * * *'
 
