@@ -4,13 +4,11 @@ upw=${{secrets.UPW}}
 
 #获取ptopid和sid
 curl -d "uid=$uid&upw=$upw&smbtn=健康状况上报平台&hh28=722" "https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login" -o "udata.txt"
-udata='cat udata.txt'
+udata=$(sed -n '11p' udata.txt)
 udata=${udata#*ptopid=}
 udata=${udata%\"\}\}*}
 ptopid="${udata%&*}" 
-sid="${udata#*&}"
-echo ${ptopid}
-echo ${sid}
+sid="${udata#*&sid=}"
 url="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
 
 #进入身份确认界面
