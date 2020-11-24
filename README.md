@@ -19,8 +19,10 @@
    <img src="">
    * 点击左侧`Github Actions Clock Bot`，点击`Run workflow`，运行一次项目。
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
+   
 ---
 项目部署完毕后，可以在`Actions`页面点击`View workflow file`查看结果。
 ![check.PNG](https://i.loli.net/2020/11/24/GUEgdrmpIAxlPW5.png)
+
 如有疑问可通过`Issues`功能提交问题，如出现签到失败的问题请耐心等待更新。
 
