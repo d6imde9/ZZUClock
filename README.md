@@ -6,11 +6,13 @@
 ---
 ## ❓部署
 ### 1. Fork 仓库
-   * 点击右上角`Fork`到自己的账号下
+
+   * 点击页面右上角的`Fork`按钮，将本项目保存到自己的仓库。
 ### 2. 添加 secrets
-   * 回到项目页面，依次点击`Settings`-->`Secrets`-->`New secret`
-   * 建立名为`UID`的 secret，值为自己的学号，然后点击`Add secret`
-   * 建立名为`UPW`的 secret，值为自己的登录密码，然后点击`Add secret`
+   * 点击`Settings`-->`Secrets`-->`New repository secret`，进入新建页面。
+   * 在`Name`栏输入`UID`，`Value`栏输入自己的学号，然后点击`Add secret`。
+   * 再次点击`Settings`-->`Secrets`-->`New repository secret`，进入新建页面。
+   * 在`Name`栏输入`UPW`，`Value`栏输入自己的登录密码，然后点击`Add secret`。
 ### 3.启用 Actions
 Actions 默认为关闭状态，Fork 之后需要手动执行一次，若成功运行其才会激活。返回项目主页面，点击上方的`Actions`，再点击左侧的`Github Actions Clock Bot`，再点击`Run workflow`
 
