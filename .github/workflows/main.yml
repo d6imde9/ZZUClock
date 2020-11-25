@@ -13,5 +13,7 @@ jobs:
         uses: actions/checkout@v2
     
       - name: Run
-        run: chmod +x ./clock.sh
-            ./clock.sh
+        env:
+            UID: ${{secrets.UID}}
+            UPW: ${{secrets.UPW}}
+        run: bash ./clock.sh $UID $UPW
