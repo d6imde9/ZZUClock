@@ -2,11 +2,12 @@
 
 ## ❗功能
 使用Actions执行脚本，每天4点定时签到，无需手动运行。模拟手动操作，防止登录失效。
+关于安全性：学号和密码用Secrect进行保存，复制项目到自己到账号下不会导致任何人的密码泄露。
 
 ---
 ## ❓部署
 ### 1. Fork 仓库
-   * 点击页面右上角的`Fork`按钮，将本项目保存到自己的仓库。~~点击`Fork`左侧的`Star`按钮可以表示您对本项目和作者的认同。~~
+   * 点击页面右上角的`Fork`按钮，将本项目保存到自己的仓库。点击`Fork`左侧的`Star`键可以表示您对本项目和作者的认同。
    ![fork.PNG](https://i.loli.net/2020/11/24/2hTtGldiZF9B7DX.png)
 ### 2. 添加 secrets
    * 点击`Settings`-->`Secrets`-->`New repository secret`，进入新建页面。
@@ -20,6 +21,10 @@
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
 
 ---
+## 更新
+   * 最简单：点击`Settings`-->`Options`-->`Dangerous Zone`-->`delete this reposity`，按照提示删除本项目，然后重新部署。
+   * 如有意使用git，请自行搜索相关命令。
+   
 项目部署完毕后，可以在`Actions`页面点击`View workflow file`查看结果。
 ![check.PNG](https://i.loli.net/2020/11/24/GUEgdrmpIAxlPW5.png)
 如有疑问可通过`Issues`功能提交问题，如出现签到失败的问题请耐心等待更新。
