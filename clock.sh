@@ -18,4 +18,4 @@ curl -d "day6=b&did=1&men6=a&ptopid=${ptopid}&sid=${sid}" ${url}
 #进行打卡
 
 myvs_13c=河南省.郑州市.金水区
-curl -d "myvs_1=否&myvs_2=否&myvs_3=否&myvs_4=否&Btn3=获取地市&myvs_13a=41&myvs_13b=4101&myvs_13c=${myvs_13c}&myvs_14=否&ptopid=${ptopid}&sid={$sid}" ${url}
+curl -d "myvs_1=否&myvs_2=否&myvs_3=否&myvs_4=否&Btn3=获取地市&myvs_13a=41&myvs_13b=4101&myvs_13c=${myvs_13c}&myvs_14=否&did=2&day6=b&men6=a&ptopid=${ptopid}&sid={$sid}" ${url}
