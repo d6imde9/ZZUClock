@@ -1,4 +1,4 @@
-name: Github Actions Clock Bot
+name: ZZU COMMUTE HELPER
 
 on:
     workflow_dispatch:
