@@ -6,7 +6,7 @@
 **注意：项目启用后60天无更新时，Actions功能会自动关闭，届时需要再次手动开启。**
 
 ---
-## 更新记录
+## ✨更新记录
 1.24：表单内容更新，部分固定内容移动至myvs.txt中。
 
 ---
@@ -25,12 +25,13 @@
    * 点击左侧`Github Actions Clock Bot`，点击`Run workflow`，运行一次项目。
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
 
----
-## 更新
-   * 最简单：点击`Settings`-->`Options`-->`Dangerous Zone`-->`delete this reposity`，按照提示删除本项目，然后重新部署。
-   * 如有意使用git，请自行搜索相关命令。
-   
 项目部署完毕后，可以在`Actions`页面点击`View workflow file`查看结果。
 ![check.PNG](https://i.loli.net/2020/11/24/GUEgdrmpIAxlPW5.png)
 如有疑问可通过`Issues`功能提交问题，如出现签到失败的问题请耐心等待更新。
+
+---
+## 📢更新方法
+   * 点击`Settings`-->`Options`-->`Dangerous Zone`-->`delete this reposity`，按照提示删除本项目，然后重新部署。
+   * 如有意使用git，请自行搜索相关命令。
+   
 
