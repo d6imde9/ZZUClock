@@ -22,7 +22,7 @@
    * 在`Name`栏输入`UPW`，`Value`栏输入自己的登录密码，然后点击`Add secret`。
 ### 3.启用 Actions
    * 点击上方的`Actions`，点击绿色按钮确认启用`Actions`功能。
-   * 点击左侧`Github Actions Clock Bot`，点击`Run workflow`，运行一次项目。
+   * 点击左侧`ZZU COMMUTE HELPER`，点击`Run workflow`，运行一次项目。
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
 
 项目部署完毕后，可以在`Actions`页面点击`View workflow file`查看结果。
