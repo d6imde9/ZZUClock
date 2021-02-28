@@ -1,8 +1,9 @@
 #!/bin/bash
 uid=$1
 upw=$2
-uidarr=($(echo ${uid} | tr " ")) #字符串预处理
-upwarr=($(echo ${upw} | tr " "))
+IFS=' '
+read -ra uidarr <<<"$uid" #字符串预处理
+read -ra upwarr <<<"$upw"
 smbtn="进入健康状况上报平台"
 url1="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login"
 url2="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
