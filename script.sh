@@ -7,8 +7,7 @@ num=${#uidarr[@]}
 smbtn="进入健康状况上报平台"
 url1="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login"
 url2="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
-echo "当前打卡人数 $num"
-for((i=0;i<number;i++))
+for((i=0;i<num;i++))
 do
 curl -d "uid=${uidarr[i]}&upw=${upwarr[i]}&smbtn=$smbtn&hh28=722" -s $url1 -o temp.txt
 udata=$(sed -n '11p' temp.txt)
