@@ -1,6 +1,8 @@
 #!/bin/bash
-uidarr=($(echo $1 | tr " ")) #字符串预处理
-upwarr=($(echo $2 | tr " "))
+uid=$1
+upw=$2
+uidarr=($(echo ${uid} | tr " ")) #字符串预处理
+upwarr=($(echo ${upw} | tr " "))
 smbtn="进入健康状况上报平台"
 url1="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login"
 url2="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
