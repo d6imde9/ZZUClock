@@ -1,13 +1,13 @@
 #!/bin/bash
 uid=$1
 upw=$2
-uidarr=(${uid//,/}) #字符串预处理
-upwarr=(${upw//,/})
-number=${#uidarr[@]}
+uidarr=(${uid//,/ }) #字符串预处理
+upwarr=(${upw//,/ })
+num=${#uidarr[@]}
 smbtn="进入健康状况上报平台"
 url1="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login"
 url2="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb"
-echo "当前打卡人数 $number"
+echo "当前打卡人数 $num"
 for((i=0;i<number;i++))
 do
 curl -d "uid=${uidarr[i]}&upw=${upwarr[i]}&smbtn=$smbtn&hh28=722" -s $url1 -o temp.txt
