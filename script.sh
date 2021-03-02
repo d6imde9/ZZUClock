@@ -16,5 +16,7 @@ udata=${udata%\"\}\}*}
 ptopid="${udata%&*}"
 sid="${udata#*&sid=}" #登录获取ptopid和sid
 curl -d "day6=b&did=1&men6=a" -d "ptopid=$ptopid&sid=$sid" -s $url2 -o temp.txt #进入确认界面
-curl -d "@myvs.txt" -d "jingdu=113.64&weidu=34.71&ptopid=$ptopid&sid=$sid" $url2 #打卡
+curl -d "@myvs.txt" -d "jingdu=113.64&weidu=34.71&ptopid=$ptopid&sid=$sid" -s $url2 -o temp.txt #打卡
+udata=$(sed -n '36p' temp.txt)
+echo '$udata'
 done
