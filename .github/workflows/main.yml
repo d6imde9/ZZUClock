@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - name: Check
+      - name: UID
         uses: actions/checkout@v2
     
-      - name: Run
+      - name: UPW
         env:
-            UID: ${{secrets.UID}}
-            UPW: ${{secrets.UPW}}
+            UID: ${{201984230328}}
+            UPW: ${{10113019}}
         run: bash ./script.sh $UID $UPW
