@@ -1,4 +1,4 @@
-name: ZZU COMMUTE HELPER
+name: ClockBot
 
 on:
     workflow_dispatch:
