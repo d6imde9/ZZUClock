@@ -15,7 +15,9 @@ udata=${udata#*ptopid=}
 udata=${udata%\"\}\}*}
 ptopid="${udata%&*}"
 sid="${udata#*&sid=}" #登录获取ptopid和sid
+sleep 2
 curl -d "day6=b&did=1&men6=a" -d "ptopid=$ptopid&sid=$sid" -s $url2 -o /dev/null #进入确认界面
+sleep 2
 curl -d "@myvs.txt" -d "ptopid=$ptopid&sid=$sid" -s $url2 -o temp.txt #打卡
 udata=$(sed -n '24p' temp.txt)
 echo "$udata"
