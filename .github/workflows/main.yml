@@ -3,7 +3,7 @@ name: ClockBot
 on:
     workflow_dispatch:
     schedule:
-    - cron: '31 2,4 * * *'
+    - cron: '36,37 2,4 * * *'
 
 jobs:
   build:
