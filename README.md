@@ -20,6 +20,7 @@
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
    * 所有运行结果可以在`Actions`页面点击`View workflow file`查看结果。
    ![check.PNG](https://i.loli.net/2020/11/24/GUEgdrmpIAxlPW5.png)
+   * 由于Git Action 定时不是特别准时，所以我换成云函数触发定时任务；自行把`./github/workerflow/main.yml`中的scheduler所在的三行去掉注释，即可每天4点多自动打卡。（这里的Cron是采用UTC时间，中国UTC+8）
 如有疑问可通过`Issues`功能提交，出现签到失败可能为打卡内容发生变化，请耐心等待更新。
 **注意：项目启用后60天无更新时，Actions功能会自动关闭，届时需要再次手动开启。**
 
