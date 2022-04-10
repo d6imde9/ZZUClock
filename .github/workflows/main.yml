@@ -27,6 +27,6 @@ jobs:
             UID: ${{secrets.UID}}
             UPW: ${{secrets.UPW}}
         run: 
-          sudo cp -p firefoxdriver /usr/bin/
-          chmod -R 777 /usr/bin/firefoxdriver
+          sudo cp -p geckodriver /usr/bin/
+          chmod -R 777 /usr/bin/geckodriver
           python main.py UID UPW
