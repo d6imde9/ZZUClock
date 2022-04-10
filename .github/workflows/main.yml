@@ -16,6 +16,9 @@ jobs:
             python-version: 3.9
       - name: Install
         run: 
+            yum install libxml2
+            yum install libxslt
+            yum install libxslt-devel
             pip install -r requirements.txt
       - name: Run
         env:
