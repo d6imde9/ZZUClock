@@ -16,6 +16,7 @@ option.add_argument('--disable-gpu')
 option.add_argument('--disable-dev-shm-usage')
 
 if __name__ == '__main__':
+    errors = 0
     driver = webdriver.Chrome(options=option, executable_path=chromedriver) #启动浏览器
     for acc in account:
         usr = acc.split(',')
@@ -28,6 +29,7 @@ if __name__ == '__main__':
         if driver.current_url == 'https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login': #登陆失败
             res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
             print(res, '\n')
+            errors += 1
             continue
         
         #进入信息确认界面，点击“本人填报”
@@ -36,10 +38,18 @@ if __name__ == '__main__':
         driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
         
         #进入打卡界面，点击“提交表格”
-        sleep(2)
+        sleep(1)
         driver.find_element(by=By.XPATH, value='//*[@id="btn416b"]').click()
         
         res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
+        if "同学，感谢你今日上报健康状况" not in res:
+            errors += 1
         print(res, '\n')
-     driver.close()
-    
+    driver.close()
+    try:
+        if errors > 0:
+            raise Exception,"个账号打卡失败"
+    except Exception,msg:
+        print(errors, msg)
+    else:
+        print("打卡完成")
