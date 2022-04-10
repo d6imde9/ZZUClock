@@ -48,7 +48,7 @@ if __name__ == '__main__':
     driver.close()
     try:
         if errors > 0:
-            raise Exception,"个账号打卡失败"
+            raise Exception, "个账号打卡失败"
     except Exception,msg:
         print(errors, msg)
     else:
