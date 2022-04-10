@@ -35,7 +35,11 @@ if __name__ == '__main__':
         #进入信息确认界面，点击“本人填报”
         frame = driver.find_element(by=By.NAME, value='zzj_top_6s')
         driver.switch_to.frame(frame)
-        driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
+        if driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[5]/span').text == "今日您已经填报过了":
+            print("已填报")
+            continue
+        else:
+            driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
         
         #进入打卡界面，点击“提交表格”
         sleep(1)
@@ -46,6 +50,7 @@ if __name__ == '__main__':
             errors += 1
         print(res, '\n')
     driver.close()
+    
     try:
         if errors > 0:
             raise Exception("打卡失败")
