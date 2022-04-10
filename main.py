@@ -49,7 +49,7 @@ if __name__ == '__main__':
     try:
         if errors > 0:
             raise Exception, "个账号打卡失败"
-    except Exception,msg:
+    except Exception, msg:
         print(errors, msg)
     else:
         print("打卡完成")
