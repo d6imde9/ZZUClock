@@ -13,7 +13,7 @@ option.add_argument('--headless')
 option.add_argument('--no-sandbox')
 option.add_argument('--disable-gpu')
 option.add_argument('--disable-dev-shm-usage')
-options.add_argument('--ignore-certificate-errors')
+option.add_argument('--ignore-certificate-errors')
 
 if __name__ == '__main__':
     errors = 0
