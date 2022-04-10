@@ -32,4 +32,5 @@ if __name__ == '__main__':
         
         res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
         print(res, '\n')
+        driver.close()
     
