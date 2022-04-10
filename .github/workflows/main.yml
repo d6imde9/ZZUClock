@@ -3,17 +3,30 @@ name: ClockBot
 on:
     workflow_dispatch:
     schedule:
-    - cron: '0 20 * * *'
+    - cron: '0 16 * * *'
+    #北京时间为UTC+8
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Check
+      - name: Checkout
         uses: actions/checkout@v2
-    
+
+      - name: SetupPython
+        uses: actions/setup-python@v1
+        with:
+           python-version: 3.9
+           
+      - name: InstallRequirement
+        run: pip install -r requirements.txt
+        
       - name: Run
         env:
             UID: ${{secrets.UID}}
             UPW: ${{secrets.UPW}}
-        run: bash ./script.sh $UID $UPW
+        run: 
+          sudo cp -p firefoxdriver /usr/bin/
+          chmod -R 777 /usr/bin/firefoxdriver
+          python main.py
