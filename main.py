@@ -7,7 +7,6 @@ import os
 option = webdriver.ChromeOptions()
 option.add_argument('--headless')
 option.add_argument('--no-sandbox')
-option.add_argument('--ignore-ssl-error')
 option.add_argument('--ignore-certificate-errors')
 option.add_argument("blink-settings=imagesEnabled=false")
 pref = {"profile.default_content_setting_values.geolocation" :2}
