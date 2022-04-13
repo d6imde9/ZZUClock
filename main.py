@@ -36,17 +36,31 @@ for acc in account:
         frame = driver.find_element(by=By.NAME, value='zzj_top_6s') #进入信息确认界面
         driver.switch_to.frame(frame)
         
-        if driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[5]/span').text == "今日您已经填报过了":
-            print("已填报")
-        else: #进入打卡界面，点击“提交表格”
-            driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
-            driver.implicitly_wait(1)
-            driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()
-            driver.implicitly_wait(1)
-            res = driver.find_element(by=By.XPATH, value='/html/body/form/div[1]/div[2]/div[2]/div[2]/div[2]').text
-            if "同学，感谢你今日上报健康状况" not in res:
-                errors += 1
-            print(res)
+        if driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[1]/span[2]').text == usr[0]:
+            if driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[5]/span').text == "今日您已经填报过了":
+                print("已填报")
+            else: #进入打卡界面，点击“提交表格”
+                driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
+                driver.implicitly_wait(1)
+                
+                if driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[5]/span[1]').text == usr[0]:
+                    driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()
+                    driver.implicitly_wait(1)
+                    
+                    if driver.current_url == 'https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/jksb':
+                        res = driver.find_element(by=By.XPATH, value='/html/body/form/div[1]/div[2]/div[2]/div[2]/div[2]').text
+                        if "同学，感谢你今日上报健康状况" not in res:
+                            errors += 1
+                        print(res)
+                    else:
+                        print("打卡异常3")
+                        errors += 1
+                else:
+                    print("打卡异常2")
+                    errors += 1
+        else:
+            print("打卡异常1")
+            errors +=1
     sleep(1)
 driver.close()
 
