@@ -25,9 +25,11 @@ for acc in account:
     usr = acc.split(',')
     #进入登陆界面，输入学号和密码进行登录
     driver.get('https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0')
+    driver.implicitly_wait(2)
     driver.find_element(by=By.NAME, value='uid').send_keys(usr[0])
     driver.find_element(by=By.NAME, value='upw').send_keys(usr[1])
     driver.find_element(by=By.NAME, value='myform52').submit()
+    driver.implicitly_wait(2)
     if driver.current_url == 'https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login':
         print('登录失败')
         errors += 1
@@ -39,8 +41,9 @@ for acc in account:
             print("已填报")
         else: #进入打卡界面，点击“提交表格”
             driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()
+            driver.implicitly_wait(2)
             driver.find_element(by=By.XPATH, value='//*[@id="btn416b"]').click()
-            sleep(5)
+            driver.implicitly_wait(2)
             res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
             if "同学，感谢你今日上报健康状况" not in res:
                 errors += 1
