@@ -14,8 +14,7 @@ option.add_argument("blink-settings=imagesEnabled=false")  # 禁用图片
 pref = {"profile.default_content_setting_values.geolocation": 2}
 option.add_experimental_option("prefs", pref)  # 禁用地理位置
 option.add_experimental_option('excludeSwitches', ['enable-automation'])  # 启用开发者模式
-serv = Service("/usr/bin/chromedriver")
-driver = webdriver.Chrome(options=option, service=serv)  # 启动浏览器
+driver = webdriver.Chrome(options=option, executable_path="/usr/bin/chromedriver")  # 启动浏览器
 
 err = 0
 account = os.environ.get('ACCOUNT').split(';')  # 字符串预处理
