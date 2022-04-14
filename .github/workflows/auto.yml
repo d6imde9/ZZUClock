@@ -1,0 +1,25 @@
+name: AutoSignIn
+on:
+    schedule:
+    #UTC时间16点对应北京时间0点
+    - cron: '30 16 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: actions/setup-python@v1
+        with: 
+            python-version: 3.7
+      - name: Install
+        run: 
+            pip install -r requirements.txt
+      - name: Run
+        env:
+            ACCOUNT: ${{secrets.ACCOUNT}}
+        run: |
+            sudo cp -p chromedriver /usr/bin/
+            chmod -R 777 /usr/bin/chromedriver
+            python main.py
