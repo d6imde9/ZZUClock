@@ -23,8 +23,8 @@ for acc in account:
     try:
         driver.get('https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0')  # 进入登陆界面
     except selenium.common.exceptions.WebDriverException:
-        print("SSL错误")  # TODO:SSL错误处理
-        err += 1000
+        account.append(acc)
+        print("SSL错误")
         continue
     driver.implicitly_wait(1)
 
@@ -54,7 +54,7 @@ for acc in account:
             if res.__len__() == 0:
                 err += 10  # TODO:打卡内容变化提示
             else:
-                if "感谢你今日上报健康状况" not in res[0].text:
+                if "感谢您今日上报健康状况" not in res[0].text:
                     err += 1
                 print(res[0].text)
     driver.close()
