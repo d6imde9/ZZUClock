@@ -50,10 +50,13 @@ for acc in account:
             driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()  # 点击提交
             driver.implicitly_wait(5)
 
-            res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]')
-            if "感谢你今日上报健康状况" not in res.text:
-                err += 1
-            print(res.text)
+            res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]')
+            if res.__len__() == 0:
+                err +=1  # TODO:打卡内容变化提示
+            else:
+                if "感谢你今日上报健康状况" not in res[0].text:
+                    err += 1
+                print(res[0].text)
 driver.close()
 if err > 0:
     print("打卡共", err, "个异常")
