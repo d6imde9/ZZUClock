@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.service import Service
 os.environ["webdriver.chrome.driver"] = '/usr/bin/chromedriver'
 option = webdriver.ChromeOptions()
 option.add_argument('--headless')  # 启用无头模式
+option.add_argument('--incognito')  # 启用无痕模式
+options.add_argument('--no-sandbox')  # 启用最高权限运行
 option.add_argument('--ignore-certificate-errors')  # 无视SSL错误
 option.add_argument("blink-settings=imagesEnabled=false")  # 禁用图片
 pref = {"profile.default_content_setting_values.geolocation": 2}
@@ -23,14 +25,14 @@ for acc in account:
     try:
         driver.get('https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0')  # 进入登陆界面
     except selenium.common.exceptions.WebDriverException:
-        account.append(acc)
+        account.append(acc)  # 错误时重新排队，直到连接成功
         print("SSL错误")
         continue
     driver.implicitly_wait(1)
 
     driver.find_element(by=By.NAME, value='uid').send_keys(usr[0])
     driver.find_element(by=By.NAME, value='upw').send_keys(usr[1])
-    driver.find_element(by=By.NAME, value='myform52').submit()  # TODO:连续登录可能会出现验证码
+    driver.find_element(by=By.NAME, value='myform52').submit()  # TODO:频繁访问可能会出现验证码
     driver.implicitly_wait(1)
 
     if driver.current_url == 'https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login':  # 登录错误
@@ -48,10 +50,11 @@ for acc in account:
             driver.implicitly_wait(1)
 
             driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()  # 点击提交
-            driver.implicitly_wait(5)
+            driver.implicitly_wait(3)
 
             res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]')
             if res.__len__() == 0:
+                print(driver.page_source).
                 err += 10  # TODO:打卡内容变化提示
             else:
                 if "感谢您今日上报健康状况" not in res[0].text:
@@ -59,7 +62,7 @@ for acc in account:
                 print(res[0].text)
     driver.close()
 if err > 0:
-    print("打卡共", err, "个异常")
+    print("打卡异常：", err)
     raise Exception
 else:
     print("打卡完成，无异常")
