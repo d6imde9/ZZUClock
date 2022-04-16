@@ -54,7 +54,7 @@ for acc in account:
 
             res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]')
             if res.__len__() == 0:
-                print(driver.page_source).
+                print(driver.page_source)
                 err += 10  # TODO:打卡内容变化提示
             else:
                 if "感谢您今日上报健康状况" not in res[0].text:
