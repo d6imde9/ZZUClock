@@ -16,11 +16,12 @@ option.add_argument("blink-settings=imagesEnabled=false")  # 禁用图片
 pref = {"profile.default_content_setting_values.geolocation": 2}
 option.add_experimental_option("prefs", pref)  # 禁用地理位置
 option.add_experimental_option('excludeSwitches', ['enable-automation'])  # 启用开发者模式
+serv = Service("/usr/bin/chromedriver")
 
 err = 0
 account = os.environ.get('ACCOUNT').split(';')  # 字符串预处理
 for acc in account:
-    driver = webdriver.Chrome(options=option, executable_path="/usr/bin/chromedriver")  # 启动浏览器
+    driver = webdriver.Chrome(options=option, service=serv)  # 启动浏览器
     usr = acc.split(',')
     try:
         driver.get('https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0')  # 进入登陆界面
@@ -47,10 +48,10 @@ for acc in account:
             print(res.text)
         else: 
             driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()  # 进入打卡界面
-            driver.implicitly_wait(3)
+            driver.implicitly_wait(1)
 
             driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()  # 点击提交
-            driver.implicitly_wait(3)
+            driver.implicitly_wait(5)
 
             res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]')
             if res.__len__() == 0:
@@ -58,7 +59,6 @@ for acc in account:
                 err += 10  # TODO:打卡内容变化提示
             else:
                 if "感谢您今日上报健康状况" not in res[0].text:
-                    print(driver.page_source)
                     err += 1
                 print(res[0].text)
     driver.close()
