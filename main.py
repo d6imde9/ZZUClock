@@ -10,7 +10,7 @@ os.environ["webdriver.chrome.driver"] = '/usr/bin/chromedriver'
 option = webdriver.ChromeOptions()
 option.add_argument('--headless')  # 启用无头模式
 option.add_argument('--incognito')  # 启用无痕模式
-options.add_argument('--no-sandbox')  # 启用最高权限运行
+option.add_argument('--no-sandbox')  # 启用最高权限运行
 option.add_argument('--ignore-certificate-errors')  # 无视SSL错误
 option.add_argument("blink-settings=imagesEnabled=false")  # 禁用图片
 pref = {"profile.default_content_setting_values.geolocation": 2}
