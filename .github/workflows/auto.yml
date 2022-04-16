@@ -5,14 +5,14 @@ on:
     - cron: '30 16 * * *'
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup
         uses: actions/setup-python@v1
         with: 
-            python-version: 3.7
+            python-version: 3.9
       - name: Install
         run: 
             pip install -r requirements.txt
