@@ -58,6 +58,7 @@ for acc in account:
                 err += 10  # TODO:打卡内容变化提示
             else:
                 if "感谢您今日上报健康状况" not in res[0].text:
+                    print(driver.page_source)
                     err += 1
                 print(res[0].text)
     driver.close()
