@@ -47,7 +47,7 @@ for acc in account:
             print(res.text)
         else: 
             driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()  # 进入打卡界面
-            driver.implicitly_wait(1)
+            driver.implicitly_wait(3)
 
             driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()  # 点击提交
             driver.implicitly_wait(3)
