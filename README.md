@@ -18,8 +18,6 @@
    * 点击`Add secret`。
 ## 3.启用Actions功能
    * 点击上方的`Actions`，点击绿色按钮确认启用Actions。
-   * (可略过)点击左侧`AutoSignIn`，然后点击`Run workflow`，可以手动运行一次项目，保证项目正常运行。
-   ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
    * 所有运行结果可以在`Actions`页面点击`View workflow file`查看报告，项目只保留最近3天的运行报告。
    ![check.PNG](https://i.loli.net/2020/11/24/GUEgdrmpIAxlPW5.png)
 **注意：打卡内容发生改变时可能会导致打卡失败，此时平台会自动发送一封邮件至注册邮箱内，用户需要进行一次手动打卡更新打卡内容，即可使打卡功能正常运行。Actions启用后连续60天内项目无更改时，平台会关闭本功能，如有需要可定期对仓库内的项目进行无意义的修改。**  
