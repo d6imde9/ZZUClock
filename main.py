@@ -35,7 +35,7 @@ for acc in account:
     if driver.current_url == 'https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/login':  # 登录错误
         res = driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
         print(res)
-        err += 100
+        err += 1
     else:
         iframe = driver.find_element(by=By.NAME, value='zzj_top_6s')  # 进入信息确认界面
         driver.switch_to.frame(iframe)  # 切换为子页面
@@ -44,15 +44,15 @@ for acc in account:
             print(res.text)
         else: 
             driver.find_element(by=By.XPATH, value='//*[@id="bak_0"]/div[11]/div[3]/div[4]').click()  # 进入打卡界面
-            driver.implicitly_wait(2)
+            driver.implicitly_wait(1)
 
-            driver.find_element(by=By.XPATH, value='//*[@id="btn416b"]').click()  # 点击提交
-            driver.implicitly_wait(2)
+            driver.find_element(by=By.XPATH, value='//*[@id="btn416a"]').click()  # 点击提交
+            driver.implicitly_wait(1)
 
-            res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]')
+            res = driver.find_elements(by=By.XPATH, value='//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]')
             if res.__len__() == 0:
                 print(driver.page_source)
-                err += 10  # TODO:打卡内容变化提示
+                err += 1  # TODO:打卡内容变化提示
             else:
                 if "感谢" not in res[0].text:
                     err += 1
