@@ -16,8 +16,8 @@ serv = Service("/usr/bin/chromedriver")
 
 err = 0
 account = os.environ.get('ACCOUNT').split(';')  # 字符串预处理
+driver = webdriver.Chrome(options=option, service=serv)  # 启动浏览器
 for acc in account:
-    driver = webdriver.Chrome(options=option, service=serv)  # 启动浏览器
     usr = acc.split(',')
     try:
         driver.get('https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0')  # 进入登陆界面
@@ -57,7 +57,7 @@ for acc in account:
                 if "感谢" not in res[0].text:
                     err += 1
                 print(res[0].text)
-    driver.close()
+driver.close()
 if err > 0:
     print("打卡异常：", err)
     raise Exception
